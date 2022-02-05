@@ -21,7 +21,7 @@ Sub 工作表合并()
             With Worksheets(CStr(Shtname(i, 1)))
                 With Intersect(.UsedRange.Offset(Headrows, 0), .UsedRange)    '向下偏移标题行同时与已使用区域取交集
                     Set Cell = Worksheets("汇总").Cells(Worksheets("汇总").UsedRange.Rows.Count + 1, 2)
-                    .Copy Cell                                  '第一次复制格式
+                    .Copy Cell                                              '第一次复制格式
                     Cell.Resize(.Rows.Count, .Columns.Count) = .Value       '第二次复制数值
                     Cell.Offset(0, -1).Resize(.Rows.Count, 1).Merge         '合并第一列存放源表名
                 End With
