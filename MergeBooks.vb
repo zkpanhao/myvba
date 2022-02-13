@@ -1,7 +1,7 @@
 Sub MergeBooks()
-    '学习重点
-    'FileDialog.Show/.SelectItem
-    'Dir的使用
+'学习重点
+'FileDialog.Show/.SelectItem
+'Dir的使用
 
     Dim PathStr As String, FileStr As String, File(), n As Integer
     Dim ActiveB As Workbook, Headline As Byte, Namess As String, Cell As Range,Tephead as String
