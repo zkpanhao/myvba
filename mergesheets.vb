@@ -1,7 +1,8 @@
 Sub 工作表合并()
     Dim Sht As Worksheet, Headrows As Byte, Cellrows As Long
     Dim Shtname
-    Shtname = Worksheets("部门对应").Range("E2:E15")               '需要合并的表名放在指定单元格中，以实现精准合并
+    Shtname = Worksheets("目录").Range("B2:B15")               '需要合并的表名放在指定单元格中，以实现精准合并
+                                                                  '结合“为工作簿添加目录.vb”获取表名
     Application.ScreenUpdating = False                         '关闭屏幕刷新,提速措施
     Application.Calculation = xlCalculationManual              '自动计算改为手动,提速措施
     On Error Resume Next
