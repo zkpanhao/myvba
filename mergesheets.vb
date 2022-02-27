@@ -10,9 +10,9 @@ Sub 工作表合并()
     If Err <> 0 Then                                           '是否存在“汇总”表
         Worksheets.Add after:=Worksheets(Worksheets.Count)     '不存在则新建
         Worksheets(Worksheets.Count).Name = "汇总"
-        Worksheets("汇总").Cells.Clear                           '清空汇总表
-        Worksheets("汇总").Select                                '选中汇总表以便后续操作
     End If
+    Worksheets("汇总").Cells.Clear                           '清空汇总表
+    Worksheets("汇总").Select                                '选中汇总表以便后续操作
     Headrows = 1                                               '设置表头行数
     Worksheets(CStr(Shtname(1, 1))).Rows("1:" & Headrows).Copy Worksheets("汇总").Cells(1, 1)  '复制表头到汇总表
     Columns("A:A").Insert                                      '插入一列用作存放被来源表的表名
