@@ -21,3 +21,13 @@ Add:
         Next
     End With
 End Sub
+
+Sub 为每个工作表增加_返回目录_()
+    For Each sht In Sheets
+        With Worksheets(sht.Name)
+            .Range("F9") = "返回目录"
+            .Hyperlinks.Add anchor:=.Range("F9"), Address:="#目录!A1", TextToDisplay:="返回目录"
+        End With
+    Next
+End Sub
+    
