@@ -1,0 +1,23 @@
+Sub 工作表拆分工作簿()
+    Dim PathStr As String, NewName As String, WBname As String
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        If .Show = -1 Then
+            PathStr = .SelectedItems(1)
+        Else
+            Exit Sub
+        End If
+    End With
+    PathStr = PathStr & IIf(Right(PathStr, 1) = "\", "", "\")
+    WBname = ActiveWorkbook.Name
+    Application.ScreenUpdating = False
+    For i = 1 To Worksheets.Count
+        NewName = Worksheets(i).Name
+        Worksheets(i).Copy
+        ActiveWorkbook.SaveAs Filename:=PathStr & NewName, FileFormat:=xlWorkbookDefault
+        ActiveWorkbook.Close
+        Workbooks(WBname).Activate
+    Next i
+    Application.ScreenUpdating = True
+    Shell "EXPLORER.exe " & PathStr
+End Sub
+
