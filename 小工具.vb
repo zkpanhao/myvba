@@ -7,3 +7,14 @@ Sub 指定内容筛选()
     Next
     Range("A:A").AutoFilter Field:=1, Criteria1:=arr1, Operator:=xlFilterValues
 End Sub
+
+Sub 多选表格()
+Dim arr
+arr = "数组来源"
+For i = 1 To UBound(arr)
+Worksheets(CStr(arr(i, 1))).Select Replace:=False
+'多选后批量编辑
+'Range("A4").Select
+'Selection = "XXX"
+Next
+End Sub
