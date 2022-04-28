@@ -9,12 +9,22 @@ Sub 指定内容筛选()
 End Sub
 
 Sub 多选表格()
-Dim arr
-arr = "数组来源"
-For i = 1 To UBound(arr)
-Worksheets(CStr(arr(i, 1))).Select Replace:=False
+    Dim arr
+    arr = "数组来源"
+    For i = 1 To UBound(arr)
+        Worksheets(CStr(arr(i, 1))).Select Replace:=False
+    Next
 '多选后批量编辑
 'Range("A4").Select
 'Selection = "XXX"
-Next
+End Sub
+
+Sub 提取表名()
+    Dim shname As String, arr1()
+    ReDim arr1(Sheets.Count)
+    For i = 1 To Sheets.Count
+        shname = Worksheets(i).Name
+        arr1(i) = shname
+    Next
+    Range("B1:B" & i - 1) = Application.Transpose(arr1)
 End Sub
