@@ -6,7 +6,7 @@ Sub 工作表拆分()
     If Splitcol = "" Then Exit Sub
     Lastrow = ActiveSheet.UsedRange.Rows.Count
     Indexsht = ActiveSheet.Index
-    If ActiveSheet.FilterMode Then Cells.AutoFilter            '如果活动表处于筛选模式则去除
+    If ActiveSheet.AutoFilterMode Then ActiveSheet.AutoFilterMode = False            '如果活动表处于筛选模式则去除
     Teparr = Range(Splitcol & Headline + 1 & ":" & Splitcol & Lastrow).Value    '把筛选列的值写进临时数组
     On Error Resume Next
     For i = 1 To UBound(Teparr)                                '把数组里的值逐个写入集合，以达到去除重复值的目的
