@@ -38,6 +38,7 @@ Sub 工作表拆分()
         With Worksheets(CStr(Keyword(n))).Rows(Headline + 1)
             Rng.Copy .Cells(1)
             .Cells(1) = Rng.Value
+            .Columns("A:P").AutoFit
         End With
     Next n
     Cells.AutoFilter
