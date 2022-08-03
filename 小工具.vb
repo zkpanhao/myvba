@@ -28,3 +28,10 @@ Sub 提取表名()
     Next
     Range("B1:B" & i - 1) = Application.Transpose(arr1)
 End Sub
+
+
+Sub 获取所有Environ变量参数()
+    For i = 1 To 40
+        Debug.Print i, Environ(i)
+    Next
+End Sub
