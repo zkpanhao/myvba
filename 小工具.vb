@@ -35,3 +35,16 @@ Sub 获取所有Environ变量参数()
         Debug.Print i, Environ(i)
     Next
 End Sub
+
+Sub 自定义序列排序()
+    Dim rng As Range, n As Long
+    Set rng = Range("e2:e" & Cells(Rows.Count, "e").End(xlUp).Row) '自定义排序的规则
+    Application.AddCustomList (rng) '增加一个自定义序列。
+    n = Application.CustomListCount  '自定义序列的数目+1
+    Range("a:c").Sort key1:=Range("a1"), _
+                        order1:=xlAscending, _
+                        Header:=xlYes, _
+                        ordercustom:=n + 1 '按指定序列排序
+    ActiveSheet.Sort.SortFields.Clear '清除排序痕迹，避免删除自定义规则后保存出错
+    Application.DeleteCustomList n
+End Sub
